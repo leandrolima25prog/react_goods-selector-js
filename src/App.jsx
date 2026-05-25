@@ -61,18 +61,17 @@ export const App = () => {
                       -
                     </button>
                   ) : (
-                    // Se NENHUM item estiver selecionado no App, exibe o AddButton.
-                    // Quando algo for selecionado, os AddButtons de todos os outros somem completamente.
-                    !selectedGood && (
-                      <button
-                        data-cy="AddButton"
-                        type="button"
-                        className="button"
-                        onClick={() => setSelectedGood(good)}
-                      >
-                        +
-                      </button>
-                    )
+                    // O AddButton SEMPRE renderiza para os itens não selecionados.
+                    // Ele fica desabilitado (disabled) se já houver outro item selecionado.
+                    <button
+                      data-cy="AddButton"
+                      type="button"
+                      className="button"
+                      onClick={() => setSelectedGood(good)}
+                      disabled={!!selectedGood}
+                    >
+                      +
+                    </button>
                   )}
                 </td>
 
