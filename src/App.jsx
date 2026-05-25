@@ -51,7 +51,7 @@ export const App = () => {
               >
                 <td>
                   {isSelected ? (
-                    // Se o item estiver selecionado, exibe o RemoveButton
+                    // Se ESTE item for o selecionado, exibe o RemoveButton
                     <button
                       data-cy="RemoveButton"
                       type="button"
@@ -61,14 +61,12 @@ export const App = () => {
                       -
                     </button>
                   ) : (
-                    // O AddButton SEMPRE renderiza para os itens não selecionados.
-                    // Ele fica desabilitado (disabled) se já houver outro item selecionado.
+                    // Se ESTE item não for o selecionado, o AddButton fica visível e clicável normalmente
                     <button
                       data-cy="AddButton"
                       type="button"
                       className="button"
                       onClick={() => setSelectedGood(good)}
-                      disabled={!!selectedGood}
                     >
                       +
                     </button>
