@@ -61,21 +61,18 @@ export const App = () => {
                       -
                     </button>
                   ) : (
-                    // Se NÃO estiver selecionado, o AddButton SEMPRE renderiza (pro Cypress achar o data-cy)
-                    // Mas usamos o atributo 'disabled' se já houver outro item selecionado!
-                    <button
-                      data-cy="AddButton"
-                      type="button"
-                      className="button"
-                      onClick={() => {
-                        if (!selectedGood) {
-                          setSelectedGood(good);
-                        }
-                      }}
-                      disabled={!!selectedGood} // Fica desabilitado se outro já estiver selecionado
-                    >
-                      +
-                    </button>
+                    // Se NENHUM item estiver selecionado no App, exibe o AddButton.
+                    // Quando algo for selecionado, os AddButtons de todos os outros somem completamente.
+                    !selectedGood && (
+                      <button
+                        data-cy="AddButton"
+                        type="button"
+                        className="button"
+                        onClick={() => setSelectedGood(good)}
+                      >
+                        +
+                      </button>
+                    )
                   )}
                 </td>
 
