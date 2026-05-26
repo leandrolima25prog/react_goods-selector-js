@@ -16,12 +16,11 @@ export const goods = [
 ];
 
 export const App = () => {
-  // Estado inicial definido como 'Jam' conforme exigido pelo enunciado
   const [selectedGood, setSelectedGood] = useState('Jam');
 
   return (
     <main className="section container">
-      {/* Exibição condicional do título principal */}
+      {}
       <h1 className="title is-flex is-align-items-center">
         {selectedGood ? (
           <>
@@ -51,7 +50,6 @@ export const App = () => {
               >
                 <td>
                   {isSelected ? (
-                    // Se ESTE item for o selecionado, exibe o RemoveButton
                     <button
                       data-cy="RemoveButton"
                       type="button"
@@ -61,7 +59,6 @@ export const App = () => {
                       -
                     </button>
                   ) : (
-                    // Se ESTE item não for o selecionado, o AddButton fica visível e clicável normalmente
                     <button
                       data-cy="AddButton"
                       type="button"
